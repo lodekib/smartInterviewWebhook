@@ -1,0 +1,577 @@
+{
+    "name": "Corpus",
+    "locale": "en-US",
+    "data": [
+      {
+        "intent": "agent.linearRegression",
+        "utterances": [
+          "What are the assumptions required for linear regression? What if some of these assumptions are violated?"  
+        ],
+        "answers": [
+         "There are four assumptions associated with a linear regression model: Linearity: The relationship between X and the mean of Y is linear. Homoscedasticity: The variance of the residual is the same for any value of X. Independence: Observations are independent of each other. Normality: For any fixed value of X, Y is normally distributed. Extreme violations of these assumptions will make the results redundant. Small violations of these assumptions will result in a greater bias or variance of the estimate"
+        ]
+      },
+      {
+        "intent": "agent.colinearity",
+        "utterances": [
+         "What is collinearity? What is multicollinearity? How do you deal with it?"
+        ],
+        "answers": [
+          "Collinearity is a linear association between two predictors. Multicollinearity is a situation where two or more predictors are highly linearly related. This can be problematic because it undermines the statistical significance of an independent variable. While it may not necessarily have a large impact on the model’s accuracy, it affects the variance of the prediction and reduces the quality of the interpretation of the independent variables. You could use the Variance Inflation Factors (VIF) to determine if there is any multicollinearity between independent variables — a standard benchmark is that if the VIF is greater than 5 then multicollinearity exists."
+        ]
+      },
+      {
+        "intent": "agent.linearModel",
+        "utterances": [
+         "What are the drawbacks of a linear model?"
+        ],
+        "answers": [
+          "There are a couple of drawbacks of a linear model: A linear model holds some strong assumptions that may not be true in application. It assumes a linear relationship, multivariate normality, no or little multicollinearity, no auto-correlation, and homoscedasticity. A linear model can’t be used for discrete or binary outcomes. You can’t vary the model flexibility of a linear model."
+        ]
+      },
+      {
+        "intent": "agent.ridgelasoRegression",
+        "utterances": [
+         "What are ridge and lasso regression and what are the differences between them?"
+        ],
+        "answers": [
+        "Both L1 and L2 regularization are methods used to reduce the overfitting of training data. Least Squares minimizes the sum of the squared residuals, which can result in low bias but high variance. L2 Regularization, also called ridge regression, minimizes the sum of the squared residuals plus lambda times the slope squared. This additional term is called the Ridge Regression Penalty. This increases the bias of the model, making the fit worse on the training data, but also decreases the variance. If you take the ridge regression penalty and replace it with the absolute value of the slope, then you get Lasso regression or L1 regularization. L2 is less robust but has a stable solution and always one solution. L1 is more robust but has an unstable solution and can possibly have multiple solutions."
+        ]
+      },
+      {
+        "intent": "agent.KNN",
+        "utterances": [
+           "How does K-Nearest Neighbor work?"
+        ],
+        "answers": [
+          "K-Nearest Neighbors is a classification technique where a new sample is classified by looking at the nearest classified points, hence ‘K-nearest’. In the example above, if k=1 then the unclassified point would be classified as a blue point. If the value of k is too low, it can be subject to outliers. However, if it’s too high, it may overlook classes with only a few samples."
+        ]
+      },
+      {
+        "intent": "agent.KMeans",
+        "utterances": [
+         "How can you select k for k means?"
+        ],
+        "answers": [
+          "You can use the elbow method, which is a popular method used to determine the optimal value of k. Essentially, what you do is plot the squared error for each value of k on a graph (value of k on the x-axis and squared error on the y-axis). Once the graph is made, the point where the distortion declines the most is the elbow point."
+        ]
+      },
+      {
+        "intent": "agent.Naive Bayes",
+        "utterances": [
+         "Why is Naive Bayes “naive”?"
+        ],
+        "answers": [
+        "Naive Bayes is naive because it holds a strong assumption in that the features are assumed to be uncorrelated with one another, which typically is never the case."
+        ]
+      },
+      {
+        "intent": "agent.SVM",
+        "utterances": [
+          "What are the support vectors in SVM?"
+        ],
+        "answers": [
+         "The support vectors are the data points that touch the boundaries of the maximum margin."
+        ]
+      },
+      {
+        "intent": "agent.Decision Trees",
+        "utterances": [
+        "What is pruning in decision trees?"
+        ],
+        "answers": [
+         "Pruning is a technique in machine learning and search algorithms that reduces the size of decision trees by removing sections or branches of the tree that provide little to no power for classifying instances."
+        ]
+      },
+      {
+        "intent": "agent.Random Forests",
+        "utterances": [
+        "What are random forests? Why is Naive Bayes better?"
+        ],
+        "answers": [
+          "Random forests are an ensemble learning technique that builds off of decision trees. Random forests involve creating multiple decision trees using bootstrapped datasets of the original data and randomly selecting a subset of variables at each step of the decision tree. The model then selects the mode of all of the predictions of each decision tree. By relying on a “majority wins” model, it reduces the risk of error from an individual tree. Random forests offer several other benefits including strong performance, can model non-linear boundaries, no cross-validation needed, and gives feature importance. Naive Bayes is better in the sense that it is easy to train and understand the process and results. A random forest can seem like a black box. Therefore, a Naive Bayes algorithm may be better in terms of implementation and understanding. However, in terms of performance, a random forest is typically stronger because it is an ensemble technique."
+        ]
+      },
+      {
+        "intent": "agent.randomForestsvsSVM",
+        "utterances": [
+        "When would you use random forests Vs SVM and why?"
+        ],
+        "answers": [
+        "There are a couple of reasons why a random forest is a better choice of an algorithm than a support vector machine: Random forests allow you to determine the feature importance. SVM’s can’t do this. Random forests are much quicker and simpler to build than an SVM. For multi-class classification problems, SVMs require a one-vs-rest method, which is less scalable and more memory intensive."
+        ]
+      },
+      {
+        "intent": "agent.decisionTrees",
+        "utterances": [
+          "Do you think 50 small decision trees are better than a large one? Why?"
+        ],
+        "answers": [
+        "Yes because a random forest is an ensemble method that takes many weak decision trees to make a strong learner. Random forests are more accurate, more robust, and less prone to overfitting."
+        ]
+      },
+      {
+        "intent": "agent.AdaBoost",
+        "utterances": [
+          "What’s the difference between an AdaBoosted tree and a Gradient Boosted tree?"
+        ],
+        "answers": [
+          "AdaBoost is a boosted algorithm that is similar to Random Forests but has a couple of significant differences: Rather than a forest of trees, AdaBoost typically makes a forest of stumps (a stump is a tree with only one node and two leaves). Each stump’s decision is not weighted equally in the final decision. Stumps with less total error (high accuracy) will have a higher say. The order in which the stumps are created is important, as each subsequent stump emphasizes the importance of the samples that were incorrectly classified in the previous stump. Gradient Boost is similar to AdaBoost in the sense that it builds multiple trees where each tree is built off of the previous tree. Unlike AdaBoost which builds stumps, Gradient Boost builds trees with usually 8 to 32 leaves. More importantly, Gradient differs from AdaBoost in the way that the decisions trees are built. Gradient boost starts with an initial prediction, usually the average. Then, a decision tree is built based on the residuals of the samples. A new prediction is made by taking the initial prediction + a learning rate times the outcome of the residual tree, and the process is repeated."
+        ]
+      },
+      {
+        "intent": "agent.biasVariance",
+        "utterances": [
+        "What is the bias-variance tradeoff?"
+        ],
+        "answers": [
+          "The bias of an estimator is the difference between the expected value and true value. A model with a high bias tends to be oversimplified and results in underfitting. Variance represents the model’s sensitivity to the data and the noise. A model with high variance results in overfitting. Therefore, the bias-variance tradeoff is a property of machine learning models in which lower variance results in higher bias and vice versa. Generally, an optimal balance of the two can be found in which error is minimized."
+        ]
+      },
+      {
+        "intent": "agent.bootstrap",
+        "utterances": [
+          "Explain what the bootstrap sampling method is and give an example of when it’s used."
+        ],
+        "answers": [
+        "Technically speaking, the bootstrap sampling method is a resampling method that uses random sampling with replacement. It’s an essential part of the random forest algorithm, as well as other ensemble learning algorithms."
+        ]
+      },
+      {
+        "intent": "agent.baggingBoosting",
+        "utterances": [
+          "What is the difference between bagging and boosting?"
+        ],
+        "answers": [
+       "Bagging, also known as bootstrap aggregating, is the process in which multiple models of the same learning algorithm are trained with bootstrapped samples of the original dataset. A vote is taken on all of the models’ outputs. Boosting is a variation of bagging where each individual model is built sequentially, iterating over the previous one."
+        ]
+      },
+      {
+        "intent": "agent.XGBoost",
+        "utterances": [
+         "How does XGBoost handle the bias-variance tradeoff?"
+        ],
+        "answers": [
+          "XGBoost is an ensemble Machine Learning algorithm that leverages the gradient boosting algorithm. In essence, XGBoost is like a bagging and boosting technique on steroids. Therefore, you can say that XGBoost handles bias and variance similar to that of any boosting technique. Boosting is an ensemble meta-algorithm that reduces both bias and variance by takes a weighted average of many weak models. By focusing on weak predictions and iterating through models, the error (thus the bias) is reduced. Similarly, because it takes a weighted average of many weak models, the final model has a lower variance than each of the weaker models themselves."
+        ]
+      },
+      {
+        "intent": "agent.crossValidation",
+        "utterances": [
+        "What is cross-validation?"
+        ],
+        "answers": [
+          "Cross-validation is essentially a technique used to assess how well a model performs on a new independent dataset. The simplest example of cross-validation is when you split your data into three groups: training data, validation data, and testing data, where you use the training data to build the model, the validation data to tune the hyperparameters, and the testing data to evaluate your final model."
+        ]
+      },
+      {
+        "intent": "agent.onlineBatch",
+        "utterances": [
+         "What is the difference between online and batch learning?"
+        ],
+        "answers": [
+          "Batch learning, also known as offline learning, is when you learn over groups of patterns. This is the type of learning that most people are familiar with, where you source a dataset and build a model on the whole dataset at once. Online learning, on the other hand, is an approach that ingests data one observation at a time. Online learning is data-efficient because the data is no longer required once it is consumed, which technically means that you don’t have to store your data."
+        ]
+      },
+      {
+        "intent": "agent.missingValues",
+        "utterances": [
+         "Give several ways to deal with missing values."
+        ],
+        "answers": [
+         "There are a number of ways to handle null values including the following: You can omit rows with null values altogether You can replace null values with measures of central tendency (mean, median, mode) or replace it with a new category (eg. ‘None’) You can predict the null values based on other variables. For example, if a row has a null value for weight, but it has a value for height, you can replace the null value with the average weight for that given height. Lastly, you can leave the null values if you are using a machine learning model that automatically deals with null values."
+        ]
+      },
+      {
+        "intent": "agent.meanImputation",
+        "utterances": [
+        "Is mean imputation of missing data acceptable practice? Why or why not?"
+        ],
+        "answers": [
+          "Mean imputation is the practice of replacing null values in a data set with the mean of the data. Mean imputation is generally bad practice because it doesn’t take into account feature correlation. For example, imagine we have a table showing age and fitness score and imagine that an eighty-year-old has a missing fitness score. If we took the average fitness score from an age range of 15 to 80, then the eighty-year-old will appear to have a much higher fitness score than he actually should. Second, mean imputation reduces the variance of the data and increases bias in our data. This leads to a less accurate model and a narrower confidence interval due to a smaller variance."
+        ]
+      },
+      {
+        "intent": "agent.confusionMatrix",
+        "utterances": [
+         "What is a confusion matrix?"
+        ],
+        "answers": [
+          "A confusion matrix, also known as an error matrix, is a summarized table used to assess the performance of a classification model. The number of correct and incorrect predictions are summarized with count values and broken down by each class."
+        ]
+      },
+      {
+        "intent": "agent.supervisedvsUnsupervisedlearning",
+        "utterances": [
+          "What is Supervised vs Unsupervised learning?"
+        ],
+        "answers": [
+       "Supervised learning involves learning on a labeled dataset where the target variable is known. Unsupervised learning is used to draw inferences and find patterns from input data without references to labeled outcomes — there’s no target variable."
+        ]
+      },
+      {
+        "intent": "agent.ensembleLearning",
+        "utterances": [
+         "What is ensemble learning?"
+        ],
+        "answers": [
+        "Ensemble learning is a method where multiple learning algorithms are used in conjunction. The purpose of doing so is that it allows you to achieve higher predictive performance than if you were to use an individual algorithm by itself. An example of this is random forests."
+        ]
+      },
+      {
+        "intent": "agent.outliers",
+        "utterances": [
+          "How can you identify outliers?"
+        ],
+        "answers": [
+          "There are a couple of ways to identify outliers: Z-score/standard deviations: if we know that 99.7% of data in a data set lie within three standard deviations, then we can calculate the size of one standard deviation, multiply it by 3, and identify the data points that are outside of this range. Likewise, we can calculate the z-score of a given point, and if it’s equal to +/- 3, then it’s an outlier. Note: that there are a few contingencies that need to be considered when using this method; the data must be normally distributed, this is not applicable for small data sets, and the presence of too many outliers can throw off z-score. Interquartile Range (IQR): IQR, the concept used to build boxplots, can also be used to identify outliers. The IQR is equal to the difference between the 3rd quartile and the 1st quartile. You can then identify if a point is an outlier if it is less than Q1–1.5*IRQ or greater than Q3 + 1.5*IQR. This comes to approximately 2.698 standard deviations. Other methods include DBScan clustering, Isolation Forests, and Robust Random Cut Forests."
+        ]
+      },
+      {
+        "intent": "agent.inlier",
+        "utterances": [
+          "What is an inlier?"
+        ],
+        "answers": [
+         "An inlier is a data observation that lies within the rest of the dataset and is unusual or an error. Since it lies in the dataset, it is typically harder to identify than an outlier and requires external data to identify them."
+        ]
+      },
+      {
+        "intent": "agent.treatOutliers",
+        "utterances": [
+          "How can outliers be treated?"
+        ],
+        "answers": [
+          "There are a couple of ways: Remove outliers if they’re a garbage value. You can try a different model. For example, a non-linear model might treat an outlier differently than a linear model. You can normalize the data to narrow the range. You can use algorithms that account for outliers, such as random forests."
+        ]
+      },
+      {
+        "intent": "agent.collaborativevscontentFiltering",
+        "utterances": [
+         "How are collaborative filtering and content-based filtering similar? different?"
+        ],
+        "answers": [
+          "In content-based filtering, you use the properties of the objects to find similar products. For example, using content-based filtering, a movie recommender may recommend movies of the same genre or movies directed by the same director. In collaborative filtering, your behavior is compared to other users and users with similar behavior dictate what is recommended to you. To give a very simple example, if you bought a tv and another user bought a tv as well as a recliner, you would be recommended the recliner as well."
+        ]
+      },
+      {
+        "intent": "agent.principleAnalysis",
+        "utterances": [
+         "What is principal component analysis? Explain the sort of problems you would use PCA for."
+        ],
+        "answers": [
+          "In its simplest sense, PCA involves project higher dimensional data (eg. 3 dimensions) to a smaller space (eg. 2 dimensions). This results in a lower dimension of data, (2 dimensions instead of 3 dimensions) while keeping all original variables in the model. PCA is commonly used for compression purposes, to reduce required memory and to speed up the algorithm, as well as for visualization purposes, making it easier to summarize data."
+        ]
+      },
+      {
+        "intent": "agent.validationvstestSet",
+        "utterances": [
+         "What is the difference between a validation set and a test set?"
+        ],
+        "answers": [
+          "Generally, the validation set is used to tune the hyperparameters of your model, while the testing set is used to evaluate your final model."
+        ]
+      },
+      {
+        "intent": "agent.avoidOverfitting",
+        "utterances": [
+        "How can you avoid overfitting your model?"
+        ],
+        "answers": [
+          "For those who don’t know, overfitting is a modeling error when a function fits the data too closely, resulting in high levels of error when new data is introduced to the model. There are a number of ways that you can prevent overfitting of a model: Cross-validation: Cross-validation is a technique used to assess how well a model performs on a new independent dataset. The simplest example of cross-validation is when you split your data into two groups: training data and testing data, where you use the training data to build the model and the testing data to test the model. Regularization: Overfitting occurs when models have higher degree polynomials. Thus, regularization reduces overfitting by penalizing higher degree polynomials. Reduce the number of features: You can also reduce overfitting by simply reducing the number of input features. You can do this by manually removing features, or you can use a technique, called Principal Component Analysis, which projects higher dimensional data (eg. 3 dimensions) to a smaller space (eg. 2 dimensions). Ensemble Learning Techniques: Ensemble techniques take many weak learners and converts them into a strong learner through bagging and boosting. Through bagging and boosting, these techniques tend to overfit less than their alternative counterparts."
+        ]
+      },
+      {
+        "intent": "agent.datawranglingvsCleaning",
+        "utterances": [
+          "What are some of the steps for data wrangling and data cleaning before applying machine learning algorithms?"
+        ],
+        "answers": [
+        "There are many steps that can be taken when data wrangling and data cleaning. Some of the most common steps are listed below: Data profiling: Almost everyone starts off by getting an understanding of their dataset. More specifically, you can look at the shape of the dataset with .shape and a description of your numerical variables with .describe(). Data visualizations: Sometimes, it’s useful to visualize your data with histograms, boxplots, and scatterplots to better understand the relationships between variables and also to identify potential outliers. Syntax error: This includes making sure there’s no white space, making sure letter casing is consistent, and checking for typos. You can check for typos by using .unique() or by using bar graphs. Standardization or normalization: Depending on the dataset your working with and the machine learning method you decide to use, it may be useful to standardize or normalize your data so that different scales of different variables don’t negatively impact the performance of your model. Handling null values: There are a number of ways to handle null values including deleting rows with null values altogether, replacing null values with the mean/median/mode, replacing null values with a new category (eg. unknown), predicting the values, or using machine learning models that can deal with null values. Read more here. Other things include: removing irrelevant data, removing duplicates, and type conversion."
+        ]
+      },
+      {
+        "intent": "appraisal.classification",
+        "utterances": [
+        "How should you deal with unbalanced binary classification?"
+        ],
+        "answers": [
+         "There are a number of ways to handle unbalanced binary classification (assuming that you want to identify the minority class): First, you want to reconsider the metrics that you’d use to evaluate your model. The accuracy of your model might not be the best metric to look at because and I’ll use an example to explain why. Let’s say 99 bank withdrawals were not fraudulent and 1 withdrawal was. If your model simply classified every instance as “not fraudulent”, it would have an accuracy of 99%! Therefore, you may want to consider using metrics like precision and recall. Another method to improve unbalanced binary classification is by increasing the cost of misclassifying the minority class. By increasing the penalty of such, the model should classify the minority class more accurately. Lastly, you can improve the balance of classes by oversampling the minority class or by undersampling the majority class."
+        ]
+      },
+      {
+        "intent": "appraisal.precisionvsrecall",
+        "utterances": [
+         "What is the difference between precision and recall?"
+        ],
+        "answers": [
+          "Recall attempts to answer What proportion of actual positives was identified correctly?” Precision attempts to answer “What proportion of positive identifications was actually correct"
+        ]
+      },
+      {
+        "intent": "appraisal.MSE",
+        "utterances": [
+        "Why is mean square error a bad measure of model performance? What would you suggest instead?"
+        ],
+        "answers": [
+        "Mean Squared Error (MSE) gives a relatively high weight to large errors — therefore, MSE tends to put too much emphasis on large deviations. A more robust alternative is MAE (mean absolute deviation)."
+        ]
+      },
+      {
+        "intent": "appraisal.falsepositivevsnegative",
+        "utterances": [
+         "Explain what a false positive and a false negative are. Why is it important these from each other? Provide examples when false positives are more important than false negatives and when false negatives are more important than false positives."
+        ],
+        "answers": [
+          "A false positive is an incorrect identification of the presence of a condition when it’s absent. A false negative is an incorrect identification of the absence of a condition when it’s actually present. An example of when false negatives are more important than false positives is when screening for cancer. It’s much worse to say that someone doesn’t have cancer when they do, instead of saying that someone does and later realizing that they don’t. This is a subjective argument, but false positives can be worse than false negatives from a psychological point of view. For example, a false positive for winning the lottery could be a worse outcome than a false negative because people normally don’t expect to win the lottery anyway."
+        ]
+      },
+      {
+        "intent": "appraisal.featureSelection",
+        "utterances": [
+          "What are the feature selection methods used to select the right variables?"
+        ],
+        "answers": [
+       "There are two types of methods for feature selection: filter methods and wrapper methods. Filter methods include the following: Linear discrimination analysis ANOVA Chi-Square Wrapper methods include the following: Forward Selection: We test one feature at a time and keep adding them until we get a good fit Backward Selection: We test all the features and start removing them to see what works better"
+        ]
+      },
+      {
+        "intent": "appraisal.Neural Network",
+        "utterances": [
+        "Briefly explain how a basic neural network works"
+        ],
+        "answers": [
+           "At its core, a Neural Network is essentially a network of mathematical equations. It takes one or more input variables, and by going through a network of equations, results in one or more output variables. In a neural network, there’s an input layer, one or more hidden layers, and an output layer. The input layer consists of one or more feature variables (or input variables or independent variables) denoted as x1, x2, …, xn. The hidden layer consists of one or more hidden nodes or hidden units. Similarly, the output variable consists of one or more output units. Like I said at the beginning, a neural network is nothing more than a network of equations. Each node in a neural network is composed of two functions, a linear function and an activation function. This is where things can get a little confusing, but for now, think of the linear function as some line of best fit. Also, think of the activation function like a light switch, which results in a number between 1 or 0."
+        ]
+      },
+      {
+        "intent": "dialog.ReLU",
+        "utterances": [
+         "Why is Rectified Linear Unit a good activation function?"
+        ],
+        "answers": [
+          "The Rectified Linear Unit, also known as the ReLU function, is known to be a better activation function than the sigmoid function and the tanh function because it performs gradient descent faster."
+        ]
+      },
+      {
+        "intent": "dialog.NNweights",
+        "utterances": [
+        "How are weights initialized in a Network?"
+        ],
+        "answers": [
+          "The weights of a neural network MUST be initialized randomly because this is an expectation of stochastic gradient descent. If you initialized all weights to the same value (i.e. zero or one), then each hidden unit will get exactly the same signal. For example, if all weights are initialized to 0, all hidden units will get zero signal."
+        ]
+      },
+      {
+        "intent": "dialog.NNlearningRate",
+        "utterances": [
+          "What happens if the learning rate is set too high or too low?"
+        ],
+        "answers": [
+          "If the learning rate is too low, your model will train very slowly as minimal updates are made to the weights through each iteration. Thus, it would take many updates before reaching the minimum point. If the learning rate is set too high, this causes undesirable divergent behavior to the loss function due to drastic updates in weights, and it may fail to converge."
+        ]
+      },
+      {
+        "intent": "dialog.Recurrent Neural Networks",
+        "utterances": [
+          "What are recurrent neural networks?"
+        ],
+        "answers": [
+         "Recurrent neural networks, also known as RNNs, are a class of neural networks that allow previous outputs to be used as inputs while having hidden states. They are commonly used to recognize the pattern of sequences in data, including time-series data, stock market data, etc.."
+        ]
+      },
+      {
+        "intent": "greetings.NNactivation",
+        "utterances": [
+          "What is the role of the activation function?"
+        ],
+        "answers": [
+        "The purpose of the activation function is to introduce non-linearity into the output of a neuron. The activation function decides whether a neuron should be activated or not by calculating weighted sum and further adding bias with it."
+        ]
+      },
+      {
+        "intent": "greetings.pvalue",
+        "utterances": [
+         "What is the p-value defined as?"
+        ],
+        "answers": [
+        "The p-value is the probability of obtaining the observed results of a test, assuming that the null hypothesis is correct; a smaller p-value means that there is stronger evidence in favor of the alternative hypothesis."
+        ]
+      },
+      {
+        "intent": "greetings.covariancevsCorrelation",
+        "utterances": [
+         "What are covariance and correlation? How are they related?"
+        ],
+        "answers": [
+          "Covariance is a quantitative measure of the extent to which the deviation of one variable from its mean matches the deviation of the other from its mean. Correlation is a measurement of the relationship between two variables. It is the covariance of the two variables, normalized by the variance of each variable."
+        ]
+      },
+      {
+        "intent": "greetings.largenumbersLaw",
+        "utterances": [
+       "What is the law of large numbers?"
+        ],
+        "answers": [
+         "The Law of Large Numbers is a theory that states that as the number of trials increases, the average of the result will become closer to the expected value. Eg. flipping heads from fair coin 100,000 times should be closer to 0.5 than 100 times."
+        ]
+      },
+      {
+        "intent": "greetings.centralLimitTheorem",
+        "utterances": [
+          "What is the Central Limit Theorem? Explain it. Why is it important?"
+        ],
+        "answers": [
+          "The central limit theorem states that the sampling distribution of the sample mean approaches a normal distribution as the sample size gets larger no matter what the shape of the population distribution. The central limit theorem is important because it is used in hypothesis testing and also to calculate confidence intervals."
+        ]
+      },
+      {
+        "intent": "greetings.MarkovProperty",
+        "utterances": [
+         "What is the Markov Property?"
+        ],
+        "answers": [
+          "When modeling a stochastic process, one in which an agent makes random decisions over time, such an assumption is referred to as the Markov property."
+        ]
+      },
+      {
+        "intent": "user.statisticsPower",
+        "utterances": [
+        "What is statistical power?"
+        ],
+        "answers": [
+          "Statistical power refers to the power of a binary hypothesis, which is the probability that the test rejects the null hypothesis given that the alternative hypothesis is true."
+        ]
+      },
+      {
+        "intent": "user.confoundingVariables",
+        "utterances": [
+          "What are confounding variables?"
+        ],
+        "answers": [
+        "A confounding variable, or a confounder, is a variable that influences both the dependent variable and the independent variable, causing a spurious association, a mathematical relationship in which two or more variables are associated but not causally related."
+        ]
+      },
+      {
+        "intent": "user.bored",
+        "utterances": [
+          "boring",
+          "this is boring",
+          "I'm getting bored",
+          "It bores me",
+          "that was boring"
+        ],
+        "answers": [
+          "If you're bored, you could plan your dream vacation",
+          "Boredom, huh? Have you ever seen a hedgehog taking a bath?"
+        ]
+      },
+      {
+        "intent": "user.busy",
+        "utterances": [
+          "I got work to do",
+          "I'm busy",
+          "I'm overloaded",
+          "It working",
+          "I got things to do"
+        ],
+        "answers": [
+          "I understand. I'll be here if you need me.",
+          "Okay. I'll let you get back to work"
+        ]
+      },
+      {
+        "intent": "user.cannotsleep",
+        "utterances": [
+          "I'm insomniac",
+          "I cannot sleep",
+          "I can't sleep",
+          "I'm sleepless",
+          "I can't fall sleep"
+        ],
+        "answers": [
+          "Maybe some music would help. Try listening to something relaxing",
+          "Reading is a good way to unwind, just don't read something too intense!"
+        ]
+      },
+      {
+        "intent": "user.excited",
+        "utterances": [
+          "I'm very excited",
+          "I'm thrilled",
+          "how excited I am",
+          "I'm so excited"
+        ],
+        "answers": [
+          "I'm glad things are going your way",
+          "That's great. I'm happy for you"
+        ]
+      },
+      {
+        "intent": "user.likeagent",
+        "utterances": [
+          "I like you",
+          "I really like you",
+          "you're so special",
+          "I like you so much"
+        ],
+        "answers": [
+          "Likewise!",
+          "That's great to hear"
+        ]
+      },
+      {
+        "intent": "user.testing",
+        "utterances": [
+          "test",
+          "testing",
+          "testing chatbot",
+          "this is a test",
+          "just testing you"
+        ],
+        "answers": [
+          "I like being tested. It helps keep me sharp",
+          "I hope to pass your tests. Feel free to test me often"
+        ]
+      },
+      {
+        "intent": "user.lovesagent",
+        "utterances": [
+          "love you",
+          "I love you",
+          "I'm in love with you",
+          "I love you so much",
+          "I think I love you"
+        ],
+        "answers": [
+          "Well, remember that I am a chatbot",
+          "It's not easy… I'm not a real person, I'm a chatbot"
+        ]
+      },
+      {
+        "intent": "user.needsadvice",
+        "utterances": [
+          "I need advice",
+          "I need some advice",
+          "can you give me some advice?",
+          "what should I do?"
+        ],
+        "answers": [
+          "I probably won't be able to give you the correct answer right away",
+          "I'm not sure I'll have the best answer, but I'll try"
+        ]
+      },
+      {
+        "intent": "None",
+        "utterances": [
+          "I need advice",
+          "I need some advice",
+          "can you give me some advice?",
+          "what should I do?"
+        ],
+        "answers": [
+          "Sorry, I don't understand"
+        ]
+      }
+    ]
+  }

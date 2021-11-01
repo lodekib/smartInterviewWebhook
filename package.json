@@ -1,0 +1,26 @@
+{
+  "name": "clear",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "assistant": "nodemon server.js"
+  },
+  "author": "lodeki",
+  "license": "ISC",
+  "dependencies": {
+    "@nlpjs/basic": "^4.22.0",
+    "actions-on-google": "^2.14.0",
+    "body-parser": "^1.19.0",
+    "dialogflow-fulfillment": "^0.6.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "file": "^0.2.2",
+    "mongoose": "^6.0.8",
+    "nodemailer": "^6.6.3",
+    "nodemon": "^2.0.12",
+    "otp-generator": "^2.0.1",
+    "pdfkit": "^0.12.3"
+  }
+}
